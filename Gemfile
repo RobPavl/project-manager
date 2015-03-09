@@ -36,8 +36,10 @@ gem 'bootstrap-sass', '~> 3.3.1.0'
 gem 'devise-bootstrap-views', '~> 0.0.3'
 gem 'execjs'
 gem 'therubyracer'
-
+gem 'omniauth-facebook'
+gem 'awesome_print'
 group :development, :test do
+  gem 'thin'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
