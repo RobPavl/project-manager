@@ -38,6 +38,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'omniauth-facebook'
 gem 'awesome_print'
+gem 'angularjs-rails'
 
 group :development, :test do
   gem 'thin'
