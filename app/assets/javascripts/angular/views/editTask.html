@@ -1,0 +1,16 @@
+<div class="col-md-4">
+  <div class="well" ng-show='editTask && editedId == {{task.id}}'>
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click='save()'>change</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Edit task here" ng-model='editedText'>
+    </div>
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">change</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Edit deadline here">
+    </div>
+  </div>
+</div>

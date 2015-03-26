@@ -1,0 +1,20 @@
+<div class="well well-sm" ng-show='comentary && taskId == {{task.id}}'> 
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Start typing here to create the new comment...">
+    <span class="input-group-btn">
+      <button class="btn btn-success active" type="button">Add Comment</button>
+    </span>
+  </div>
+  <div ng-repeat="comment in task.comments">
+    <ul class="list-group" >
+      <li class="list-group-item">{{comment.text}}
+        <button class="btn btn-default btn-xs">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+        <button class="btn btn-default btn-xs " ng-file-upload>
+          <span class="glyphicon glyphicon-paperclip"></span>
+        </button>                   
+      </li>
+    </ul> 
+  </div>
+</div>
