@@ -7,11 +7,11 @@
         <span class="glyphicon glyphicon-plus"></span> Add new project
       </button>
     </div>
-    <div class="col-md-9">
-      <div class="panel panel-primary">
+    <div class="col-md-9" ng-controller='ProjectCtrl'>
+      <div class="panel panel-primary" ng-repeat="project in projects">
         <div class="panel-heading" >
-          <h3 class="panel-title" ng-controller='ProjectCtrl'>
-            <span class="glyphicon glyphicon-tasks"></span> {{text}}
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-tasks"></span> {{project.text}}
             <div class="pull-right">
               <button type="button" class="btn btn-primary btn-xs">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        </div>    
+        </div>
       </div>
     </div>
   </div>

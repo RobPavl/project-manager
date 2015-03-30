@@ -31,7 +31,9 @@ var app = angular.module('todoList', [])
       $scope.taskId = $scope.tasks[$index].id;
 	}
   }]);
-  
+
   app.controller('ProjectCtrl', ['$scope', function ($scope) {
-  	$scope.text = 'First progect';
+    $scope.projects=[{'text': "Фігня якась"},
+    {'text':'Ще одна фігня'}]
   }]);
+
