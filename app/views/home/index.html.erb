@@ -11,7 +11,7 @@
       <div class="panel panel-primary" ng-repeat="project in projects">
         <div class="panel-heading" >
           <h3 class="panel-title">
-            <span class="glyphicon glyphicon-tasks"></span> {{project.text}}
+            <span class="glyphicon glyphicon-tasks"></span> {{project.name}}
             <div class="pull-right">
               <button type="button" class="btn btn-primary btn-xs">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -27,10 +27,10 @@
         <div class="panel-body">
           <div ng-repeat="task in tasks " >
             <div class="row"  >
-              <div class="col-md-1"><input type="checkbox" ng-model='task.done'></div>
+              <div class="col-md-1"><input type="checkbox" ng-model='task.is_checked'></div>
               <div class="col-md-9">
-                <p > {{task.text}}
-                  <span class="badge pull-right">deadline at {{task.date}}</span>
+                <p > {{task.body}}
+                  <span class="badge pull-right">deadline at {{task.deadline}}</span>
                 </p>
               </div>
               <div class="col-md-2">
