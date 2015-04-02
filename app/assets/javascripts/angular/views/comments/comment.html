@@ -1,13 +1,13 @@
-<div class="well well-sm" ng-show='comentary && taskId == {{task.id}}'>
+<div class="well well-sm">
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Start typing here to create the new comment...">
+    <input type="text" class="form-control" placeholder="Start typing here to create the new comment..." >
     <span class="input-group-btn">
-      <button class="btn btn-success active" type="button">Add Comment</button>
+      <button class="btn btn-success active" type="button" >Add Comment</button>
     </span>
   </div>
-  <div ng-repeat="comment in task.comments">
+  <div >
     <ul class="list-group" >
-      <li class="list-group-item">{{comment.body}}
+      <li class="list-group-item">comment.body
         <button class="btn btn-default btn-xs">
           <span class="glyphicon glyphicon-trash"></span>
         </button>

@@ -2,16 +2,26 @@
 
 <div class="container" ng-app='todoList'>
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-2" >
+      <div>
+        <h5><i>Список проектів:</i></h5>
+        <ul>
+          <li>проект 1</li>
+          <li>проект 2</li>
+          <li>проект 3</li>
+          <li>проект 4</li>
+          <li>проект 5</li>
+        </ul>
+      </div>
       <button type="button" class="btn btn-success">
         <span class="glyphicon glyphicon-plus"></span> Add new project
       </button>
     </div>
-    <div class="col-md-9" ng-controller='ProjectCtrl'>
-      <div class="panel panel-primary" ng-repeat="project in projects">
-        <div class="panel-heading" >
+    <div class="col-md-9" >
+      <div class="panel panel-primary">
+        <div class="panel-heading"><!--ng-show='projecty '&& projectId == {{project.id}}-->
           <h3 class="panel-title">
-            <span class="glyphicon glyphicon-tasks"></span> {{project.name}}
+            <span class="glyphicon glyphicon-tasks"></span> name
             <div class="pull-right">
               <button type="button" class="btn btn-primary btn-xs">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -22,19 +32,19 @@
             </div>
           </h3>
         </div>
-        <div ng-controller="TaskCtrl">
-        <div class="slide-animate" ng-include="'assets/angular/views/createTask.html'"></div>
+        <div >
+        <div class="slide-animate" ng-include="'assets/angular/views/tasks/createTask.html'"></div>
         <div class="panel-body">
-          <div ng-repeat="task in tasks " >
+          <div>
             <div class="row"  >
-              <div class="col-md-1"><input type="checkbox" ng-model='task.is_checked'></div>
+              <div class="col-md-1"><input type="checkbox" ></div>
               <div class="col-md-9">
-                <p > {{task.body}}
-                  <span class="badge pull-right">deadline at {{task.deadline}}</span>
+                <p > task
+                  <span class="badge pull-right">deadline at deadline</span>
                 </p>
               </div>
               <div class="col-md-2">
-                <button type="button" class="btn btn-default btn-xs pull-right"ng-click="showEdition(task.id, $index)">
+                <button type="button" class="btn btn-default btn-xs pull-right">
                   <span class="glyphicon glyphicon-pencil"></span>
                 </button>
                 <button type="button" class="btn btn-default btn-xs pull-right">
@@ -43,16 +53,16 @@
                 <button type="button" class="btn btn-default btn-xs pull-right">
                   <span class="glyphicon glyphicon-signal"></span>
                 </button>
-                <button type="button" class="btn btn-default btn-xs pull-right" ng-click='showComment(task.id, $index)'>
+                <button type="button" class="btn btn-default btn-xs pull-right" >
                   <span class="glyphicon glyphicon-list-alt" ></span>
                 </button>
               </div>
             </div>
             <div class="row">
               <div class="col-md-8">
-                <div class="slide-animate" ng-include="'assets/angular/views/comment.html'"></div>
+                <div class="slide-animate" ng-include="'assets/angular/views/comments/comment.html'"></div>
               </div>
-              <div class="slide-animate" ng-include="'assets/angular/views/editTask.html'"></div>
+              <div class="slide-animate" ng-include="'assets/angular/views/tasks/editTask.html'"></div>
             </div>
           </div>
         </div>
