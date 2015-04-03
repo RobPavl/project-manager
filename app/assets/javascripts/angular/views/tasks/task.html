@@ -1,0 +1,28 @@
+            <div class="row"  >
+              <div class="col-md-1"><input type="checkbox" ></div>
+              <div class="col-md-9">
+                <p > task
+                  <span class="badge pull-right">deadline at deadline</span>
+                </p>
+              </div>
+              <div class="col-md-2">
+                <button type="button" class="btn btn-default btn-xs pull-right">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button type="button" class="btn btn-default btn-xs pull-right">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <button type="button" class="btn btn-default btn-xs pull-right">
+                  <span class="glyphicon glyphicon-signal"></span>
+                </button>
+                <button type="button" class="btn btn-default btn-xs pull-right" >
+                  <span class="glyphicon glyphicon-list-alt" ></span>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="slide-animate" ng-include="'assets/angular/views/comments/comments.html'"></div>
+              </div>
+              <div class="slide-animate" ng-include="'assets/angular/views/tasks/editTask.html'"></div>
+            </div>

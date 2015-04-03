@@ -1,0 +1,19 @@
+    <div class="col-md-9" >
+      <div class="panel panel-primary">
+        <div class="panel-heading"><!--ng-show='projecty '&& projectId == {{project.id}}-->
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-tasks"></span> name
+            <div class="pull-right">
+              <button type="button" class="btn btn-primary btn-xs">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </button>
+              <button type="button" class="btn btn-primary btn-xs">
+                <span class="glyphicon glyphicon-trash"></span>
+              </button>
+            </div>
+          </h3>
+        </div>
+        <div class="slide-animate" ng-include="'assets/angular/views/tasks/tasks.html'">
+        </div>
+      </div>
+    </div>
