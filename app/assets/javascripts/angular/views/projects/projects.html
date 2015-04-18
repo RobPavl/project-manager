@@ -1,15 +1,21 @@
-  <div class="row" ng-controller="ProjectsCtrl">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div>
         <h5><i>Список проектів:</i></h5>
         <ul ng-repeat="project in projects">
-          <a class="btn btn-link" href="#" role="button">{{project.name}}</a>
+          <a class="btn btn-link" href="/projects/{{project.id}}" role="button">{{project.name}}</a>
         </ul>
       </div>
       <button type="button" class="btn btn-success">
         <span class="glyphicon glyphicon-plus"></span> Add new project
       </button>
+      <p>
+        <div class="well well-sm" ng-show="editingProject">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Edit project">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Click to Add</button>
+            </span>
+          </div>
+        </div>
+      </p>
     </div>
-    <div class="slide-animate" ng-include="'assets/angular/views/projects/project.html'">
-    </div>
-  </div>

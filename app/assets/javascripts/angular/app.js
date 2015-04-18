@@ -1,15 +1,46 @@
-var app = angular.module('todoList', [])
+var PROJECTS = [{'name': "Проект 1","id":1},{'name': "Проект 2","id":2},
+    {'name': "Проект 3","id":3},{'name': "Проект 4","id":4},{'name': "Проект 5","id":5}];
+
+var app = angular.module('todoList', ['ngRoute'])
 
   app.controller('ProjectsCtrl', ['$scope', function ($scope) {
-    $scope.projects=[{'name': "Проект 1"},{'name': "Проект 2"},
-    {'name': "Проект 3"},{'name': "Проект 4"},{'name': "Проект 5"}]
+    $scope.projects = PROJECTS;
+
+    $scope.editingProject=true;
+    console.log('$scope.projects');
+    console.log($scope.projects);
   }]);
 
-/*  app.controller('ProjectCtrl', ['$scope', function ($scope) {
-    //$scope.
+  app.controller('ProjectCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+     $scope.projectId = $routeParams.projectId;
+
+     $scope.project = PROJECTS[$scope.projectId];
+
+     $scope.editProject=function(){
+       console.log('Editing project');
+       $scope.editingProject=true;
+    }
   }]);
 
-  app.controller('TasksCtrl', ['$scope', function ($scope) {
+  app.config(['$routeProvider', '$locationProvider',
+    function($routeProvider, $locationProvider) {
+      $routeProvider.
+        when('/projects', {
+          templateUrl: '/assets/angular/views/projects/projects.html',
+          controller: 'ProjectsCtrl'
+        }).
+        when('/projects/:projectId', {
+          templateUrl: '/assets/angular/views/projects/project.html',
+          controller: 'ProjectCtrl'
+        }).
+        otherwise({
+          redirectTo: '/projects'
+        });
+
+        $locationProvider.html5Mode(true);
+    }]);
+
+/*  app.controller('TasksCtrl', ['$scope', function ($scope) {
     //$scope.
   }]);
 
