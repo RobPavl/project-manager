@@ -8,13 +8,24 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
-  resources :projects do
-    resources :tasks do
-      resources :comments do
+  scope 'api' do
+    resources :projects do
+      resources :tasks do
+        resources :comments do
+        end
       end
     end
   end
+
+
+  get '/:all(/:id)'  => 'home#index'
+
+  # resources :projects do
+  #   resources :tasks do
+  #     resources :comments do
+  #     end
+  #   end
+  # end
 
 
   # Example of regular route:
