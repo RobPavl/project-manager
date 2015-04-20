@@ -1,7 +1,13 @@
+  <div class="col-md-1">
+    <a href="/projects" class="btn btn-link">
+      <span class="glyphicon glyphicon-backward"> Back</span>
+    </a>
+  </div>
+  <div class="col-md-11">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <span class="glyphicon glyphicon-tasks"></span> name
+          <span class="glyphicon glyphicon-tasks"></span> {{project.name}}
           <div class="pull-right">
             <button type="button" class="btn btn-primary btn-xs" ng-click="editProject()">
               <span class="glyphicon glyphicon-pencil"></span>
@@ -15,7 +21,6 @@
       <div class="slide-animate" ng-include="'assets/angular/views/tasks/tasks.html'">
       </div>
     </div>
-
     <p>
       <div class="well well-sm" ng-show="editingProject">
         <div class="input-group">
@@ -26,3 +31,4 @@
         </div>
       </div>
     </p>
+  </div>

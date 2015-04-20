@@ -12,13 +12,13 @@ var app = angular.module('todoList', ['ngRoute'])
   }]);
 
   app.controller('ProjectCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
-     $scope.projectId = $routeParams.projectId;
+    $scope.projectId = $routeParams.projectId;
 
-     $scope.project = PROJECTS[$scope.projectId];
+    $scope.project = PROJECTS[$scope.projectId-1];
 
-     $scope.editProject=function(){
-       console.log('Editing project');
-       $scope.editingProject=true;
+    $scope.editProject=function(){
+      console.log('Editing project');
+      $scope.editingProject=true;
     }
   }]);
 
