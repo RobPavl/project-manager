@@ -1,5 +1,7 @@
 var PROJECTS = [{'name': "Проект 1","id":1},{'name': "Проект 2","id":2},
     {'name': "Проект 3","id":3},{'name': "Проект 4","id":4},{'name': "Проект 5","id":5}];
+var TASKS = [{'body': 'Some task 1', 'deadline': '45-th march', 'id': 1, 'project_id': 1},
+{'body': 'Some task 2', 'deadline': '44-th april', 'id': 2, 'project_id': 1}];
 
 var app = angular.module('todoList', ['ngRoute'])
 
@@ -16,9 +18,9 @@ var app = angular.module('todoList', ['ngRoute'])
 
     $scope.project = PROJECTS[$scope.projectId-1];
 
-    $scope.editProject=function(){
+    $scope.editProject = function(){
       console.log('Editing project');
-      $scope.editingProject=true;
+      $scope.editingProject = true;
     }
   }]);
 
@@ -40,14 +42,16 @@ var app = angular.module('todoList', ['ngRoute'])
         $locationProvider.html5Mode(true);
     }]);
 
-/*  app.controller('TasksCtrl', ['$scope', function ($scope) {
-    //$scope.
+  app.controller('TasksCtrl', ['$scope', function ($scope) {
+    $scope.tasks = TASKS;
+
   }]);
 
-  app.controller('TaskCtrl', ['$scope', function ($scope) {
-    //$scope.
-  }]);
+  // app.controller('TaskCtrl', ['$scope', function ($scope) {
 
+  // }]);
+
+/*
   app.controller('CreateTaskCtrl', ['$scope', function ($scope) {
     //$scope.
   }]);

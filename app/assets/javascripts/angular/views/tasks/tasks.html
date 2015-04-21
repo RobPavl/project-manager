@@ -1,5 +1,7 @@
-        <div class="slide-animate" ng-include="'assets/angular/views/tasks/createTask.html'"></div>
-        <div class="panel-body">
-          <div class="slide-animate" ng-include="'assets/angular/views/tasks/task.html'">
-          </div>
-        </div>
+<div ng-controller="TasksCtrl">
+  <div class="slide-animate" ng-include="'assets/angular/views/tasks/createTask.html'"></div>
+  <div class="panel-body" ng-repeat="task in tasks">
+    <div class="slide-animate" ng-include="'assets/angular/views/tasks/task.html'">
+    </div>
+  </div>
+</div>
