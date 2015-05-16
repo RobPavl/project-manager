@@ -1,22 +1,30 @@
-var PROJECTS = [{'name': "Проект 1","id":1},{'name': "Проект 2","id":2},
-    {'name': "Проект 3","id":3},{'name': "Проект 4","id":4},{'name': "Проект 5","id":5}];
-var TASKS = [{'body': 'Some task 1', 'deadline': '45-th march', 'id': 1, 'project_id': 1},
-{'body': 'Some task 2', 'deadline': '44-th april', 'id': 2, 'project_id': 1}];
+var app = angular.module('todoList', ['ngRoute', 'ngResource'])
 
-var app = angular.module('todoList', ['ngRoute'])
+  app.controller('ProjectsCtrl', ['$scope', 'Projects', function ($scope, Projects) {
 
-  app.controller('ProjectsCtrl', ['$scope', function ($scope) {
-    $scope.projects = PROJECTS;
+    Projects.query({})
+    .$promise.then(function(data) {
+      $scope.projects = data;
+      console.log('$scope.projects[0]');
+      console.log($scope.projects[2]);
+    });
 
     $scope.editingProject=true;
     console.log('$scope.projects');
     console.log($scope.projects);
   }]);
 
-  app.controller('ProjectCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+  app.controller('ProjectCtrl', ['$scope', '$routeParams', 'Projects', function ($scope, $routeParams, Projects) {
     $scope.projectId = $routeParams.projectId;
 
-    $scope.project = PROJECTS[$scope.projectId-1];
+    Projects.get({projectId: $scope.projectId})
+    .$promise.then(function(data) {
+      $scope.project = data;
+      console.log('$scope.project');
+      console.log($scope.project);
+
+    });
+    // $scope.project = PROJECTS[$scope.projectId-1];
 
     $scope.editProject = function(){
       console.log('Editing project');
@@ -42,14 +50,17 @@ var app = angular.module('todoList', ['ngRoute'])
         $locationProvider.html5Mode(true);
     }]);
 
-  app.controller('TasksCtrl', ['$scope', function ($scope) {
-    $scope.tasks = TASKS;
-
+  app.controller('TasksCtrl', ['$scope', 'Tasks',function ($scope, Tasks) { //!!!!!!!!
+    //$scope.tasks = TASKS1;
+    Tasks.query({})
+    .$promise.then(function(data) {
+      $scope.tasks = data; });
   }]);
 
-  // app.controller('TaskCtrl', ['$scope', function ($scope) {
+    // app.controller('TaskCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
 
-  // }]);
+    //   };
+    // }]);
 
 /*
   app.controller('CreateTaskCtrl', ['$scope', function ($scope) {

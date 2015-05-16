@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class Api::ProjectsController < ApplicationController
 
   def index
     render json: current_user.projects.to_json
@@ -10,12 +10,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = current_user.projects.find_by params[:id]
+    @project = current_user.projects.find params[:id]
     render json: @project.to_json
   end
 
   def update
-    @project = current_user.projects.find_by params[:id]
+    @project = current_user.projects.find params[:id]
     @project.update_attributes(project_params)
     render json: @project.to_json
   end
@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.find params[:id]
     render json: @project.delete
   end
-
 
   private
 
