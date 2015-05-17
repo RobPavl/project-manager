@@ -5,4 +5,4 @@ return $resource('/api/projects/:projectId/tasks',
   {
     'update': { method:'PUT' },
   });
-}]);    //!!!!!!!!!
+}]);

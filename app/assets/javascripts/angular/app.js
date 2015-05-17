@@ -14,7 +14,7 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
     console.log($scope.projects);
   }]);
 
-  app.controller('ProjectCtrl', ['$scope', '$routeParams', 'Projects', function ($scope, $routeParams, Projects) {
+  app.controller('ProjectCtrl', ['$scope', '$routeParams', 'Projects', 'Tasks', function ($scope, $routeParams, Projects, Tasks) {
     $scope.projectId = $routeParams.projectId;
 
     Projects.get({projectId: $scope.projectId})
@@ -22,8 +22,10 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
       $scope.project = data;
       console.log('$scope.project');
       console.log($scope.project);
-
-    });
+      Tasks.query({projectId: $scope.projectId})
+        .$promise.then(function(data) {
+          $scope.tasks = data; });
+        });
     // $scope.project = PROJECTS[$scope.projectId-1];
 
     $scope.editProject = function(){
@@ -43,6 +45,7 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
           templateUrl: '/assets/angular/views/projects/project.html',
           controller: 'ProjectCtrl'
         }).
+
         otherwise({
           redirectTo: '/projects'
         });
@@ -51,8 +54,7 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
     }]);
 
   app.controller('TasksCtrl', ['$scope', 'Tasks',function ($scope, Tasks) { //!!!!!!!!
-    //$scope.tasks = TASKS1;
-    Tasks.query({})
+    Tasks.query({projectId: $scope.projectId})
     .$promise.then(function(data) {
       $scope.tasks = data; });
   }]);
