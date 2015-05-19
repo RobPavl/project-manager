@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
   def index
     render json: current_user.projects.where(id: params[:project_id]).first.tasks.where(id: params[:task_id]).first.comments.to_json
   end
