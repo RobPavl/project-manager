@@ -17,21 +17,24 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
   app.controller('ProjectCtrl', ['$scope', '$routeParams', 'Projects', 'Tasks', 'Comments', function ($scope, $routeParams, Projects, Tasks, Comments) {
     $scope.projectId = $routeParams.projectId;
     $scope.taskId = $routeParams.taskId;
-
+    console.log("$scope");
+    console.log($scope);
     Projects.get({projectId: $scope.projectId})
     .$promise.then(function(data) {
       $scope.project = data;
       console.log('$scope.project');
       console.log($scope.project);
-      
+
       Tasks.query({projectId: $scope.projectId})
         .$promise.then(function(data) {
-          $scope.tasks = data; 
-        
-        Comments.query({projectId: $scope.projectId, taskId: $scope.taskId})
-          .$promise.then(function(data) {
-            $scope.comments = data; 
-          });
+          $scope.tasks = data;
+          //angular.forEach($scope.tasks, function(task, i){
+          //  Comments.query({projectId: $scope.projectId, taskId: task.id})
+          //    .$promise.then(function(data) {
+          //      $scope.tasks[i].comments = data;
+
+          //    });
+          //});
         });
       });
     // $scope.project = PROJECTS[$scope.projectId-1];
@@ -70,7 +73,7 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
   app.controller('CommentsCtrl', ['$scope', 'Comments', function ($scope) {
     Comments.query({projectId: $scope.projectId, taskId: $scope.taskId})
     .$promise.then(function(data) {
-      $scope.comments = data; 
+      $scope.comments = data;
     });
   }]);
 
@@ -83,7 +86,7 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
     //$scope.
   }]);
 
- 
+
 
   app.controller('CommentCtrl', ['$scope', function ($scope) {
     //$scope.
