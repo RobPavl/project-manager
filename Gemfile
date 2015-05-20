@@ -39,6 +39,7 @@ gem 'therubyracer'
 gem 'omniauth-facebook'
 gem 'awesome_print'
 gem 'angularjs-rails'
+gem 'active_model_serializers', '~> 0.9.3'
 
 group :development, :test do
   gem 'thin'
