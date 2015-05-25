@@ -1,7 +1,7 @@
 class Api::TasksController < ApplicationController
   def index
-    render json: current_user.projects.where(id: params[:project_id]).first.tasks.to_json
-    #render json: @post, serializer: TaskSerializer
+    @tasks = current_user.projects.where(id: params[:project_id]).first.tasks
+    render json: @tasks, each_serializer: TaskSerializer
   end
 
   def create
