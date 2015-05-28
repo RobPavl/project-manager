@@ -14,7 +14,7 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
     console.log($scope.projects);
   }]);
 
-  app.controller('ProjectCtrl', ['$scope', '$routeParams', 'Projects', 'Tasks', 'Comments', function ($scope, $routeParams, Projects, Tasks, Comments) {
+  app.controller('ProjectCtrl', ['$scope', '$routeParams', 'Projects', 'Tasks', function ($scope, $routeParams, Projects, Tasks) {
     $scope.projectId = $routeParams.projectId;
     $scope.taskId = $routeParams.taskId;
     console.log("$scope");
@@ -25,19 +25,11 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
       console.log('$scope.project');
       console.log($scope.project);
 
-      Tasks.query({projectId: $scope.projectId})
+      Tasks.query({projectId: $scope.projectId, })
         .$promise.then(function(data) {
           $scope.tasks = data;
-          //angular.forEach($scope.tasks, function(task, i){
-          //  Comments.query({projectId: $scope.projectId, taskId: task.id})
-          //    .$promise.then(function(data) {
-          //      $scope.tasks[i].comments = data;
-
-          //    });
-          //});
         });
       });
-    // $scope.project = PROJECTS[$scope.projectId-1];
 
     $scope.editProject = function(){
       console.log('Editing project');
@@ -64,7 +56,7 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
         $locationProvider.html5Mode(true);
     }]);
 
-  app.controller('TasksCtrl', ['$scope', 'Tasks',function ($scope, Tasks) { //!!!!!!!!
+  app.controller('TasksCtrl', ['$scope', 'Tasks',function ($scope, Tasks) { 
     Tasks.query({projectId: $scope.projectId})
     .$promise.then(function(data) {
       $scope.tasks = data; });
@@ -76,22 +68,3 @@ var app = angular.module('todoList', ['ngRoute', 'ngResource'])
       $scope.comments = data;
     });
   }]);
-
-/*
-  app.controller('CreateTaskCtrl', ['$scope', function ($scope) {
-    //$scope.
-  }]);
-
-  app.controller('EditTaskCtrl', ['$scope', function ($scope) {
-    //$scope.
-  }]);
-
-
-
-  app.controller('CommentCtrl', ['$scope', function ($scope) {
-    //$scope.
-  }]);
-
-  app.controller('CreateCommentCtrl', ['$scope', function ($scope) {
-    //$scope.
-  }]);*/
